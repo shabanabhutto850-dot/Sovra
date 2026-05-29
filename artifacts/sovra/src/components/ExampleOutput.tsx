@@ -93,7 +93,7 @@ export default function ExampleOutput() {
         </motion.div>
 
         {/* Video Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
           {videos.map((src, i) => (
             <VideoCard key={i} src={src} index={i} isInView={isInView} />
           ))}

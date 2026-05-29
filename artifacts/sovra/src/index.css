@@ -87,33 +87,50 @@ body {
 /* Calendly embed styling - phone responsive */
 .calendly-wrapper {
   width: 100%;
+  max-width: 100%;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
+  position: relative;
 }
 
 .calendly-inline-widget {
-  border: none;
+  border: none !important;
   width: 100% !important;
-  min-width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  display: block;
+}
+
+.calendly-inline-widget iframe {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  border: none !important;
 }
 
 @media (max-width: 767px) {
   .calendly-inline-widget {
     height: 1050px !important;
-    min-height: 1050px !important;
+  }
+  .calendly-inline-widget iframe {
+    height: 1050px !important;
   }
 }
 
 @media (max-width: 479px) {
   .calendly-inline-widget {
     height: 1100px !important;
-    min-height: 1100px !important;
+  }
+  .calendly-inline-widget iframe {
+    height: 1100px !important;
   }
 }
 
 @media (min-width: 768px) {
   .calendly-inline-widget {
     height: 700px !important;
-    min-height: 700px !important;
+  }
+  .calendly-inline-widget iframe {
+    height: 700px !important;
   }
 }
