@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/sovra/"
+title = "Sovra - AI Ad Creatives"
+version = "1.0.0"
+id = "artifacts/sovra"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/sovra/" ]
+localPort = 22735
+
+[services.development]
+run = "pnpm --filter @workspace/sovra run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/sovra", "run", "build" ]
+publicDir = "artifacts/sovra/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22735"
+BASE_PATH = "/sovra/"
