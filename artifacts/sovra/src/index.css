@@ -97,27 +97,9 @@ body {
   background: transparent;
 }
 
-/* Heights by breakpoint */
-@media (max-width: 479px) {
-  .calendly-inline-widget,
-  .calendly-inline-widget iframe {
-    height: 1100px !important;
-    min-height: 1100px !important;
-  }
-}
-
-@media (min-width: 480px) and (max-width: 767px) {
-  .calendly-inline-widget,
-  .calendly-inline-widget iframe {
-    height: 1000px !important;
-    min-height: 1000px !important;
-  }
-}
-
-@media (min-width: 768px) {
-  .calendly-inline-widget,
-  .calendly-inline-widget iframe {
-    height: 720px !important;
-    min-height: 720px !important;
-  }
+/* Fixed 900px height on all screens */
+.calendly-inline-widget,
+.calendly-inline-widget iframe {
+  height: 900px !important;
+  min-height: 900px !important;
 }

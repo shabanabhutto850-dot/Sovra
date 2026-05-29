@@ -50,7 +50,7 @@ export default function BookingSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="border border-[#2a2a2a] bg-[#0d0d0d] overflow-hidden rounded-2xl sm:rounded-3xl w-full"
+          className="border border-[#2a2a2a] bg-white overflow-hidden rounded-2xl sm:rounded-3xl w-full max-w-[900px] mx-auto"
         >
           {/* Loading spinner */}
           {!loaded && (
@@ -62,7 +62,7 @@ export default function BookingSection() {
           <div className="calendly-wrapper">
             <div
               className="calendly-inline-widget"
-              data-url="https://calendly.com/haseeb-rehman-student/new-meeting?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=ffffff&text_color=ffffff&background_color=0d0d0d"
+              data-url="https://calendly.com/haseeb-rehman-student/new-meeting?hide_gdpr_banner=1"
             />
           </div>
         </motion.div>
