@@ -1,11 +1,10 @@
 [build]
-  command = "pnpm install --no-frozen-lockfile && pnpm --filter @workspace/sovra build"
+  command = "bash netlify-build.sh"
   publish = "artifacts/sovra/dist/public"
 
 [build.environment]
-  NODE_VERSION  = "20"
-  PNPM_VERSION  = "10"
-  BASE_PATH     = "/"
+  NODE_VERSION = "20"
+  PNPM_VERSION = "10"
 
 [[redirects]]
   from   = "/*"
