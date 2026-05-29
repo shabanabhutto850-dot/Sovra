@@ -2,14 +2,15 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useCallback } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
-import vid1 from "@assets/0523(1)_1780050251681.mp4";
-import vid2 from "@assets/0523(2)_1780050251682.mp4";
-import vid3 from "@assets/0524(1)_1780050251683.mp4";
-import vid4 from "@assets/UGC_Maxxing_AI_Content_System_for_Growth_Teams_(1)_1780050251685.mp4";
-import vid5 from "@assets/UGC_Maxxing_AI_Content_System_for_Growth_Teams_(3)_1780050251686.mp4";
-import vid6 from "@assets/UGC_Maxxing_AI_Content_System_for_Growth_Teams_1780050251687.mp4";
-
-const videos = [vid1, vid2, vid3, vid4, vid5, vid6];
+// Videos live in public/videos/ — served as static files on both Replit and Netlify
+const videos = [
+  "/videos/video1.mp4",
+  "/videos/video2.mp4",
+  "/videos/video3.mp4",
+  "/videos/video4.mp4",
+  "/videos/video5.mp4",
+  "/videos/video6.mp4",
+];
 
 function VideoCard({ src, index, isInView }: { src: string; index: number; isInView: boolean }) {
   const [muted, setMuted] = useState(true);
@@ -27,14 +28,9 @@ function VideoCard({ src, index, isInView }: { src: string; index: number; isInV
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 0.5,
-        ease: "easeOut",
-        delay: 0.1 + index * 0.08,
-      }}
+      transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 + index * 0.08 }}
       className="group relative aspect-[9/16] bg-[#111111] border border-[#2a2a2a] overflow-hidden transition-all duration-500 hover:border-[#3a3a3a] hover:-translate-y-1 rounded-2xl"
     >
-      {/* Video */}
       <video
         ref={videoRef}
         src={src}
@@ -45,12 +41,12 @@ function VideoCard({ src, index, isInView }: { src: string; index: number; isInV
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Hover glow overlay */}
+      {/* Hover glow */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl">
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl" />
       </div>
 
-      {/* Mute / Unmute button */}
+      {/* Mute/Unmute button — appears on hover */}
       <button
         onClick={toggleMute}
         aria-label={muted ? "Unmute" : "Mute"}
@@ -59,7 +55,7 @@ function VideoCard({ src, index, isInView }: { src: string; index: number; isInV
         {muted ? <VolumeX size={14} /> : <Volume2 size={14} />}
       </button>
 
-      {/* Always-visible mute indicator (small dot) */}
+      {/* Small dot indicator when not hovering */}
       <div className="absolute bottom-3 right-3 z-10 group-hover:hidden">
         <div className={`w-1.5 h-1.5 rounded-full ${muted ? "bg-white/20" : "bg-white/60"}`} />
       </div>
@@ -81,9 +77,7 @@ export default function ExampleOutput() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="mb-12 sm:mb-16 max-w-2xl"
         >
-          <p className="text-[11px] uppercase tracking-[0.25em] text-[#666666] mb-4">
-            Output
-          </p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-[#666666] mb-4">Output</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-tight mb-5">
             Example Output
           </h2>
