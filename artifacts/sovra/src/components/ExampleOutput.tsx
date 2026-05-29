@@ -2,14 +2,15 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useCallback } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
-// Videos live in public/videos/ — served as static files on both Replit and Netlify
+// Use Vite's BASE_URL so paths work under any base (/ on Netlify, /sovra/ on Replit)
+const BASE = import.meta.env.BASE_URL; // always ends with /
 const videos = [
-  "/videos/video1.mp4",
-  "/videos/video2.mp4",
-  "/videos/video3.mp4",
-  "/videos/video4.mp4",
-  "/videos/video5.mp4",
-  "/videos/video6.mp4",
+  `${BASE}videos/video1.mp4`,
+  `${BASE}videos/video2.mp4`,
+  `${BASE}videos/video3.mp4`,
+  `${BASE}videos/video4.mp4`,
+  `${BASE}videos/video5.mp4`,
+  `${BASE}videos/video6.mp4`,
 ];
 
 function VideoCard({ src, index, isInView }: { src: string; index: number; isInView: boolean }) {
