@@ -2,15 +2,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useCallback } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
-// Use Vite's BASE_URL so paths work under any base (/ on Netlify, /sovra/ on Replit)
-const BASE = import.meta.env.BASE_URL; // always ends with /
+// Cloudinary-hosted videos — no size limits, global CDN, work on every host
 const videos = [
-  `${BASE}videos/video1.mp4`,
-  `${BASE}videos/video2.mp4`,
-  `${BASE}videos/video3.mp4`,
-  `${BASE}videos/video4.mp4`,
-  `${BASE}videos/video5.mp4`,
-  `${BASE}videos/video6.mp4`,
+  "https://res.cloudinary.com/dtynkicfs/video/upload/v1780127569/0523_1_i7xp4b.mp4",
+  "https://res.cloudinary.com/dtynkicfs/video/upload/v1780127481/0523_2_irkddh.mp4",
+  "https://res.cloudinary.com/dtynkicfs/video/upload/v1780127444/0524_1_yebw3r.mp4",
+  "https://res.cloudinary.com/dtynkicfs/video/upload/v1780127539/UGC_Maxxing_AI_Content_System_for_Growth_Teams_1_tktzyh.mp4",
+  "https://res.cloudinary.com/dtynkicfs/video/upload/v1780126059/UGC_Maxxing_AI_Content_System_for_Growth_Teams_3_zfaar4.mp4",
+  "https://res.cloudinary.com/dtynkicfs/video/upload/v1780127543/UGC_Maxxing_AI_Content_System_for_Growth_Teams_byyohm.mp4",
 ];
 
 function VideoCard({ src, index, isInView }: { src: string; index: number; isInView: boolean }) {
